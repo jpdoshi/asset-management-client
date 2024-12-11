@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -19,8 +19,7 @@ import Login from "./pages/Login";
 
 const App = () => {
   const userId = Cookies.get("user_id");
-  // const userRole = Cookies.get("user_role");
-  const userRole = "User";
+  const userRole = Cookies.get("user_role");
 
   return userId && typeof userId != "undefined" ? (
     <BrowserRouter>

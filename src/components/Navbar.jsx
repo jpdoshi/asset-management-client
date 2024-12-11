@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
+import Cookie from "js-cookie";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(true);
+
+  const userRole = Cookie.get("user_role");
 
   const toggleMenuOpen = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -50,12 +53,17 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link
+                <button
+                  onClick={() => {
+                    Cookie.remove("user_id");
+                    Cookie.remove("user_role");
+                    window.location.reload();
+                  }}
                   to="#"
                   className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100"
                 >
                   Sign out
-                </Link>
+                </button>
               </li>
             </ul>
           </div>
@@ -104,38 +112,42 @@ const Navbar = () => {
                 Dashboard
               </Link>
             </li>
-            <li>
-              <Link
-                to="/requests"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-indigo-700 md:p-0"
-              >
-                Requests
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/assets"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-indigo-700 md:p-0"
-              >
-                Assets
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/users"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-indigo-700 md:p-0"
-              >
-                Users
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/teams"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-indigo-700 md:p-0"
-              >
-                Teams
-              </Link>
-            </li>
+            {userRole == "Admin" ? (
+              <>
+                <li>
+                  <Link
+                    to="/requests"
+                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-indigo-700 md:p-0"
+                  >
+                    Requests
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/assets"
+                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-indigo-700 md:p-0"
+                  >
+                    Assets
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/users"
+                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-indigo-700 md:p-0"
+                  >
+                    Users
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/teams"
+                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-indigo-700 md:p-0"
+                  >
+                    Teams
+                  </Link>
+                </li>
+              </>
+            ) : null}
           </ul>
         </div>
       </div>
