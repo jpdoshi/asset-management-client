@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white border-b border-indigo-100 absolute w-screen z-50 top-0 shadow-md shadow-indigo-100">
+    <nav className="bg-white border-b border-indigo-100 absolute w-screen z-50 top-0">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <div className="relative flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <button
@@ -32,7 +32,7 @@ const Navbar = () => {
           <div
             className={`${
               isMenuOpen ? "hidden" : ""
-            } z-50 absolute top-[28px] right-[-50%] my-4 text-base list-none bg-white divide-y divide-indigo-100 rounded-lg border border-indigo-100 shadow-md shadow-indigo-100`}
+            } z-50 absolute top-[28px] right-[-50%] my-4 text-base list-none bg-white divide-y divide-indigo-100 rounded-lg border border-indigo-100 drop-shadow`}
             id="user-dropdown"
           >
             <div className="px-4 py-2">

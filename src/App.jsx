@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import AssetsDetails from "./pages/AssetsDetails";
 import UserDeatils from "./pages/UserDeatils";
 import TeamDetails from "./pages/TeamDetails";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
         <Route element={<Users />} path="/users" />
         <Route element={<UserDeatils />} path="/users/:slug" />
         <Route element={<Requests />} path="/requests" />
+        <Route element={<NotFound />} path="*" />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -18,7 +18,7 @@ const Assets = () => {
         </div>
         <button
           onClick={() => setShowModal(true)}
-          className="bg-indigo-600 px-5 py-2 h-fit rounded-full text-white hover:bg-indigo-500 duration-300 shadow-indigo-100 shadow-md"
+          className="bg-indigo-600 px-5 py-2 h-fit rounded-full text-white hover:bg-indigo-500 duration-300"
         >
           Add Asset
         </button>

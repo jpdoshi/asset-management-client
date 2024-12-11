@@ -4,7 +4,7 @@ import Cross from "./Cross";
 
 const RequestCard = ({ user, team, asset }) => {
   return (
-    <div className="px-6 py-4 flex justify-between shadow-md rounded-md shadow-indigo-100 bg-white border border-indigo-100">
+    <div className="px-6 py-4 flex justify-between rounded-md bg-white border border-indigo-100">
       <div className="my-auto">
         <h1 className="text-2xl font-medium mb-1">{asset}</h1>
         <ul className="flex gap-3">

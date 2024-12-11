@@ -3,7 +3,7 @@ import Cross from "./Cross";
 
 const ManagerTable = () => {
   return (
-    <div className="mt-4 bg-white shadow-indigo-100 shadow rounded-md border border-indigo-100">
+    <div className="mt-4 bg-white rounded-md border border-indigo-100">
       <table className="w-full">
         <thead>
           <tr className="border-b border-gray-200 font-semibold">

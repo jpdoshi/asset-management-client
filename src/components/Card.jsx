@@ -4,7 +4,7 @@ import Arrow from "./Arrow";
 
 const Card = ({ title, amount, to = "/" }) => {
   return (
-    <div className="p-4 pb-2 shadow-md rounded-md shadow-indigo-100 bg-white border border-indigo-100">
+    <div className="p-4 pb-2 rounded-md bg-white border border-indigo-100">
       <h1 className="text-3xl mb-2 font-medium">{amount}</h1>
       <p className="opacity-50 font-semibold">{title}</p>
       <div className="flex justify-end">

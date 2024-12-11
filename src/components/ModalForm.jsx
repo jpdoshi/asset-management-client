@@ -13,13 +13,13 @@ const ModalForm = ({ showModal, setShowModal, title, children, onClick }) => {
     >
       <div className="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 p-4 w-full max-w-2xl max-h-full">
         {/* Modal content */}
-        <div className="relative bg-white rounded-lg shadow-md shadow-indigo-100 border border-indigo-100">
+        <div className="relative bg-white rounded-lg shadow-xl shadow-gray-200 border border-indigo-100">
           {/* Modal header */}
           <div className="flex items-center justify-between p-4 px-6 rounded-t">
             <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
             <button
               type="button"
-              className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+              className="text-gray-400 hover:text-red-600 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
               onClick={closeModal}
             >
               <svg

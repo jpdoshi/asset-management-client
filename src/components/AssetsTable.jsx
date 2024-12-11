@@ -2,7 +2,7 @@ import React from "react";
 
 const AssetsTable = () => {
   return (
-    <div className="bg-white shadow-indigo-100 shadow rounded-md border border-indigo-100">
+    <div className="bg-white rounded-md border border-indigo-100">
       <table className="w-full">
         <thead>
           <tr className="border-b border-gray-200 font-semibold">
