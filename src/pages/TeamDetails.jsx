@@ -57,7 +57,7 @@ const TeamDetails = () => {
       <ModalForm
         showModal={showMemberModal}
         setShowModal={setShowMemberModal}
-        title="Add Team Manager"
+        title="Add Team Member"
         onClick={() => {
           setShowMemberModal(false);
           alert("team member added");
@@ -68,7 +68,7 @@ const TeamDetails = () => {
       <ModalForm
         showModal={showManagerModal}
         setShowModal={setShowManagerModal}
-        title="Add Team Member"
+        title="Add Team Manager"
         onClick={() => {
           setShowManagerModal(false);
           alert("team manager added");
