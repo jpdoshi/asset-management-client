@@ -4,7 +4,7 @@ import Cross from "./Cross";
 
 const RequestCard = ({ user, team, asset }) => {
   return (
-    <div className="px-6 py-4 flex justify-between shadow rounded-md shadow-indigo-100 bg-white border border-indigo-100">
+    <div className="px-6 py-4 flex justify-between shadow-md rounded-md shadow-indigo-100 bg-white border border-indigo-100">
       <div className="my-auto">
         <h1 className="text-2xl font-medium mb-1">{asset}</h1>
         <ul className="flex gap-3">
@@ -17,13 +17,13 @@ const RequestCard = ({ user, team, asset }) => {
         </ul>
       </div>
       <div className="flex gap-2">
-        <button>
-          <span className="opacity-80 text-sm rounded p-0.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
+        <button onClick={() => alert("accept request")}>
+          <span className="opacity-80 text-sm rounded-md p-0.5 bg-green-700 duration-300 hover:bg-green-600 text-white inline-block">
             <Tick />
           </span>
         </button>
-        <button>
-          <span className="opacity-80 text-sm rounded p-0.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
+        <button onClick={() => alert("decline request")}>
+          <span className="opacity-80 text-sm rounded-md p-0.5 bg-red-700 duration-300 hover:bg-red-600 text-white inline-block">
             <Cross />
           </span>
         </button>

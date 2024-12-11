@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white border-b border-indigo-100 absolute w-screen z-50 top-0">
+    <nav className="bg-white border-b border-indigo-100 absolute w-screen z-50 top-0 shadow-md shadow-indigo-100">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <div className="relative flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <button
@@ -32,7 +32,7 @@ const Navbar = () => {
           <div
             className={`${
               isMenuOpen ? "hidden" : ""
-            } z-50 absolute top-[28px] right-[-50%] my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg border border-gray-200 drop-shadow-md`}
+            } z-50 absolute top-[28px] right-[-50%] my-4 text-base list-none bg-white divide-y divide-indigo-100 rounded-lg border border-indigo-100 shadow-md shadow-indigo-100`}
             id="user-dropdown"
           >
             <div className="px-4 py-2">
@@ -88,7 +88,7 @@ const Navbar = () => {
           className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
           id="navbar-user"
         >
-          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
+          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-indigo-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
             <li>
               <Link to="/" className="rtl:space-x-reverse">
                 <span className="block translate-y-[-2.5px] text-xl text-indigo-600 font-bold whitespace-nowrap">

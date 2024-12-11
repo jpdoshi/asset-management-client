@@ -15,7 +15,8 @@ const Dashboard = () => {
         <Card amount={4} title="No of Teams" to="/teams" />
       </div>
       <div className="mt-8">
-        <h2 className="font-medium text-2xl">Maintanance and Logs</h2>
+        <h1 className="font-medium mb-1 text-3xl">Maintanance Logs</h1>
+        <h2 className="font-medium text-lg opacity-60">Recent Asset Logs</h2>
         <div className="mt-4">
           <Maintanance />
         </div>

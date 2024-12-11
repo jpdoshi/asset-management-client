@@ -18,14 +18,22 @@ const AssetsTable = () => {
             <td className="py-2 px-8 text-sm">Product #0</td>
             <td className="py-2 px-8 text-sm">Tyrion Lannister</td>
             <td className="py-2 px-8 text-sm flex gap-2">
-              <button>
-                <span className="opacity-80 text-sm rounded px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
-                  scrap
+              <button
+                onClick={() => {
+                  alert("Scrap Item");
+                }}
+              >
+                <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
+                  Scrap
                 </span>
               </button>
-              <button>
-                <span className="opacity-80 text-sm rounded px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
-                  remove
+              <button
+                onClick={() => {
+                  alert("Remove Item");
+                }}
+              >
+                <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-red-700 duration-300 hover:bg-red-600 text-white inline-block">
+                  Remove
                 </span>
               </button>
             </td>
@@ -35,14 +43,22 @@ const AssetsTable = () => {
             <td className="py-2 px-8 text-sm">Product #1</td>
             <td className="py-2 px-8 text-sm">Jon Snow</td>
             <td className="py-2 px-8 text-sm flex gap-2">
-              <button>
-                <span className="opacity-80 text-sm rounded px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
-                  scrap
+              <button
+                onClick={() => {
+                  alert("Scrap Item");
+                }}
+              >
+                <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
+                  Scrap
                 </span>
               </button>
-              <button>
-                <span className="opacity-80 text-sm rounded px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
-                  remove
+              <button
+                onClick={() => {
+                  alert("Remove Item");
+                }}
+              >
+                <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-red-700 duration-300 hover:bg-red-600 text-white inline-block">
+                  Remove
                 </span>
               </button>
             </td>
@@ -52,14 +68,22 @@ const AssetsTable = () => {
             <td className="py-2 px-8 text-sm">Product #2</td>
             <td className="py-2 px-8 text-sm">Jaime Lannister</td>
             <td className="py-2 px-8 text-sm flex gap-2">
-              <button>
-                <span className="opacity-80 text-sm rounded px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
-                  scrap
+              <button
+                onClick={() => {
+                  alert("Scrap Item");
+                }}
+              >
+                <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
+                  Scrap
                 </span>
               </button>
-              <button>
-                <span className="opacity-80 text-sm rounded px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
-                  remove
+              <button
+                onClick={() => {
+                  alert("Remove Item");
+                }}
+              >
+                <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-red-700 duration-300 hover:bg-red-600 text-white inline-block">
+                  Remove
                 </span>
               </button>
             </td>
@@ -69,14 +93,22 @@ const AssetsTable = () => {
             <td className="py-2 px-8 text-sm">Product #3</td>
             <td className="py-2 px-8 text-sm">Cersei Lannister</td>
             <td className="py-2 px-8 text-sm flex gap-2">
-              <button>
-                <span className="opacity-80 text-sm rounded px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
-                  scrap
+              <button
+                onClick={() => {
+                  alert("Scrap Item");
+                }}
+              >
+                <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
+                  Scrap
                 </span>
               </button>
-              <button>
-                <span className="opacity-80 text-sm rounded px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
-                  remove
+              <button
+                onClick={() => {
+                  alert("Remove Item");
+                }}
+              >
+                <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-red-700 duration-300 hover:bg-red-600 text-white inline-block">
+                  Remove
                 </span>
               </button>
             </td>
@@ -86,14 +118,22 @@ const AssetsTable = () => {
             <td className="py-2 px-8 text-sm">Product #4</td>
             <td className="py-2 px-8 text-sm">Viserys Targeryen</td>
             <td className="py-2 px-8 text-sm flex gap-2">
-              <button>
-                <span className="opacity-80 text-sm rounded px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
-                  scrap
+              <button
+                onClick={() => {
+                  alert("Scrap Item");
+                }}
+              >
+                <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
+                  Scrap
                 </span>
               </button>
-              <button>
-                <span className="opacity-80 text-sm rounded px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
-                  remove
+              <button
+                onClick={() => {
+                  alert("Remove Item");
+                }}
+              >
+                <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-red-700 duration-300 hover:bg-red-600 text-white inline-block">
+                  Remove
                 </span>
               </button>
             </td>
