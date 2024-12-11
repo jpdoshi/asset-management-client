@@ -8,7 +8,7 @@ const TeamsTable = () => {
     <div className="bg-white rounded-md border border-indigo-100">
       <table className="w-full">
         <thead>
-          <tr className="border-b border-gray-200 font-semibold">
+          <tr className="border-b border-indigo-100 font-semibold">
             <td className="py-2 px-8">ID</td>
             <td className="py-2 px-8">Team</td>
             <td className="py-2 px-8">Manager</td>
@@ -16,7 +16,7 @@ const TeamsTable = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className="border-b border-gray-200">
+          <tr className="border-b border-indigo-100">
             <td className="py-2 px-8 text-sm">30005338</td>
             <td className="py-2 px-8 text-sm">Accounts Deaprtment</td>
             <td className="py-2 px-8 text-sm">Jon Snow</td>
@@ -28,7 +28,7 @@ const TeamsTable = () => {
               </Link>
             </td>
           </tr>
-          <tr className="border-b border-gray-200">
+          <tr className="border-b border-indigo-100">
             <td className="py-2 px-8 text-sm">35902178</td>
             <td className="py-2 px-8 text-sm">Management Team</td>
             <td className="py-2 px-8 text-sm">Bran Stark</td>
@@ -40,7 +40,7 @@ const TeamsTable = () => {
               </Link>
             </td>
           </tr>
-          <tr className="border-b border-gray-200">
+          <tr className="border-b border-indigo-100">
             <td className="py-2 px-8 text-sm">63421974</td>
             <td className="py-2 px-8 text-sm">Digital Marketing</td>
             <td className="py-2 px-8 text-sm">Jaime Lannister</td>
@@ -52,7 +52,7 @@ const TeamsTable = () => {
               </Link>
             </td>
           </tr>
-          <tr className="border-b border-gray-200">
+          <tr className="border-b border-indigo-100">
             <td className="py-2 px-8 text-sm">68952180</td>
             <td className="py-2 px-8 text-sm">Software Development</td>
             <td className="py-2 px-8 text-sm">Arya Stark</td>
@@ -64,7 +64,7 @@ const TeamsTable = () => {
               </Link>
             </td>
           </tr>
-          <tr className="border-b border-gray-200">
+          <tr className="border-b border-indigo-100">
             <td className="py-2 px-8 text-sm">46736186</td>
             <td className="py-2 px-8 text-sm">Graphics Designing</td>
             <td className="py-2 px-8 text-sm">Jaime Lannister</td>

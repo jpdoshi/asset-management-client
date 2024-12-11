@@ -6,14 +6,14 @@ const ManagerTable = () => {
     <div className="mt-4 bg-white rounded-md border border-indigo-100">
       <table className="w-full">
         <thead>
-          <tr className="border-b border-gray-200 font-semibold">
+          <tr className="border-b border-indigo-100 font-semibold">
             <td className="py-2 px-8">ID</td>
             <td className="py-2 px-8">Team Manager</td>
             <td className="py-2 px-8">Action</td>
           </tr>
         </thead>
         <tbody>
-          <tr className="border-b border-gray-200">
+          <tr className="border-b border-indigo-100">
             <td className="py-2 px-8 text-sm">30005338</td>
             <td className="py-2 px-8 text-sm">Sansa Stark</td>
             <td className="py-2 px-8 text-sm flex gap-2">
@@ -28,7 +28,7 @@ const ManagerTable = () => {
               </button>
             </td>
           </tr>
-          <tr className="border-b border-gray-200">
+          <tr className="border-b border-indigo-100">
             <td className="py-2 px-8 text-sm">98575346</td>
             <td className="py-2 px-8 text-sm">Robert Baratheon</td>
             <td className="py-2 px-8 text-sm flex gap-2">

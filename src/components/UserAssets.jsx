@@ -5,7 +5,7 @@ const UserAssets = () => {
     <div className="bg-white rounded-md border border-indigo-100">
       <table className="w-full">
         <thead>
-          <tr className="border-b border-gray-200 font-semibold">
+          <tr className="border-b border-indigo-100 font-semibold">
             <td className="py-2 px-8">ID</td>
             <td className="py-2 px-8">Asset Name</td>
             <td className="py-2 px-8">Asset Type</td>
@@ -13,7 +13,7 @@ const UserAssets = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className="border-b border-gray-200">
+          <tr className="border-b border-indigo-100">
             <td className="py-2 px-8 text-sm">30005338</td>
             <td className="py-2 px-8 text-sm">Lenovo LOQ 2024</td>
             <td className="py-2 px-8 text-sm">Laptop</td>
@@ -25,7 +25,7 @@ const UserAssets = () => {
               </button>
             </td>
           </tr>
-          <tr className="border-b border-gray-200">
+          <tr className="border-b border-indigo-100">
             <td className="py-2 px-8 text-sm">63421974</td>
             <td className="py-2 px-8 text-sm">Logitech M055</td>
             <td className="py-2 px-8 text-sm">Mouse</td>
