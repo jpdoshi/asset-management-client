@@ -16,6 +16,8 @@ import NotFound from "./pages/NotFound";
 import Cookies from "js-cookie";
 import UserDashboard from "./pages/UserDashboard";
 import Login from "./pages/Login";
+import ManageTeam from "./pages/ManageTeam";
+import UserTeam from "./pages/UserTeam";
 
 const App = () => {
   const userId = Cookies.get("user_id");
@@ -36,9 +38,17 @@ const App = () => {
           <Route element={<Requests />} path="/requests" />
           <Route element={<NotFound />} path="*" />
         </Routes>
+      ) : userRole == "Manager" ? (
+        <Routes>
+          <Route element={<UserDashboard />} path="/" />
+          <Route element={<UserTeam />} path="/request" />
+          <Route element={<ManageTeam />} path="/team" />
+          <Route element={<NotFound />} path="*" />
+        </Routes>
       ) : (
         <Routes>
           <Route element={<UserDashboard />} path="/" />
+          <Route element={<UserTeam />} path="/team" />
           <Route element={<NotFound />} path="*" />
         </Routes>
       )}

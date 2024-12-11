@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Cookie from "js-cookie";
 
+import users from "../utils/users.json";
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(true);
 
@@ -11,6 +13,14 @@ const Navbar = () => {
   const toggleMenuOpen = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  let username;
+
+  for (let user of users.users) {
+    if (user.id == Cookie.get("user_id").toString()) {
+      username = user.name;
+    }
+  }
 
   return (
     <nav className="bg-white border-b border-indigo-100 absolute w-screen z-50 top-0">
@@ -40,7 +50,7 @@ const Navbar = () => {
           >
             <div className="px-4 py-2">
               <span className="block text-sm truncate text-gray-900">
-                Admin
+                {username}
               </span>
             </div>
             <ul className="py-1.5" aria-labelledby="user-menu-button">
@@ -147,7 +157,18 @@ const Navbar = () => {
                   </Link>
                 </li>
               </>
-            ) : null}
+            ) : (
+              <>
+                <li>
+                  <Link
+                    to="/team"
+                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-indigo-700 md:p-0"
+                  >
+                    Team
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>
