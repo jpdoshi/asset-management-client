@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Jainam Doshi",
+      "username": "jpdoshi",
+      "password": "123",
+      "role": "Admin"
+    },
+    {
+      "id": "2",
+      "name": "Rick Sanchez",
+      "username": "rick",
+      "password": "789",
+      "role": "Manager"
+    },
+    {
+      "id": "3",
+      "name": "Morty Smith",
+      "username": "morty",
+      "password": "456",
+      "role": "User"
+    },
+    {
+      "id": "4",
+      "name": "Jerry Smith",
+      "username": "jerry",
+      "password": "456",
+      "role": "User"
+    },
+    {
+      "id": "5",
+      "name": "Beth Sanchez",
+      "password": "456",
+      "role": "User"
+    }
+  ]
+}

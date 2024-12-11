@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -13,23 +13,39 @@ import UserDeatils from "./pages/UserDeatils";
 import TeamDetails from "./pages/TeamDetails";
 import NotFound from "./pages/NotFound";
 
+import Cookies from "js-cookie";
+import UserDashboard from "./pages/UserDashboard";
+import Login from "./pages/Login";
+
 const App = () => {
-  return (
+  const userId = Cookies.get("user");
+  const userRole = "User";
+
+  return userId && typeof userId != "undefined" ? (
     <BrowserRouter>
       <Navbar />
-      <Routes>
-        <Route element={<Dashboard />} path="/" />
-        <Route element={<Assets />} path="/assets" />
-        <Route element={<AssetsDetails />} path="/assets/:slug" />
-        <Route element={<Teams />} path="/teams" />
-        <Route element={<TeamDetails />} path="/teams/:slug" />
-        <Route element={<Users />} path="/users" />
-        <Route element={<UserDeatils />} path="/users/:slug" />
-        <Route element={<Requests />} path="/requests" />
-        <Route element={<NotFound />} path="*" />
-      </Routes>
+      {userRole == "Admin" ? (
+        <Routes>
+          <Route element={<Dashboard />} path="/" />
+          <Route element={<Assets />} path="/assets" />
+          <Route element={<AssetsDetails />} path="/assets/:slug" />
+          <Route element={<Teams />} path="/teams" />
+          <Route element={<TeamDetails />} path="/teams/:slug" />
+          <Route element={<Users />} path="/users" />
+          <Route element={<UserDeatils />} path="/users/:slug" />
+          <Route element={<Requests />} path="/requests" />
+          <Route element={<NotFound />} path="*" />
+        </Routes>
+      ) : (
+        <Routes>
+          <Route element={<UserDashboard />} path="/" />
+          <Route element={<NotFound />} path="*" />
+        </Routes>
+      )}
       <Footer />
     </BrowserRouter>
+  ) : (
+    <Login />
   );
 };
 
