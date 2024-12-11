@@ -18,7 +18,8 @@ import UserDashboard from "./pages/UserDashboard";
 import Login from "./pages/Login";
 
 const App = () => {
-  const userId = Cookies.get("user");
+  const userId = Cookies.get("user_id");
+  // const userRole = Cookies.get("user_role");
   const userRole = "User";
 
   return userId && typeof userId != "undefined" ? (
