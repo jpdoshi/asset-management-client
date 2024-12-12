@@ -4,9 +4,15 @@ import Page from "../components/Page";
 import TeamsTable from "../components/TeamsTable";
 import ModalForm from "../components/ModalForm";
 import FormField from "../components/FormField";
+import { useRef } from "react";
+import axios from "axios";
+import { API_URL } from "../config.mjs";
 
 const Teams = () => {
   const [showModal, setShowModal] = useState(false);
+  const teamNameRef = useRef(null);
+  const teamManagerRef = useRef(null);
+
   return (
     <Page>
       <div className="flex justify-between">
@@ -28,13 +34,31 @@ const Teams = () => {
         showModal={showModal}
         setShowModal={setShowModal}
         title="Add Team"
-        onClick={() => {
+        onClick={async () => {
           setShowModal(false);
-          alert("team added");
+
+          const name = teamNameRef.current.value;
+          const manager = teamManagerRef.current.value;
+          const team = { name, manager };
+
+          const newTeam = await axios.post(`${API_URL}/team`, team);
+          await axios.put(`${API_URL}/user/${manager}`, {
+            team: newTeam.data.data._id,
+            role: "Manager",
+          });
+          window.location.reload();
         }}
       >
-        <FormField label="Team Name" placeholder="e.g: Graphics Designing" />
-        <FormField label="Team Manager" placeholder="Firstname Lastname" />
+        <FormField
+          fieldRef={teamNameRef}
+          label="Team Name"
+          placeholder="e.g: Graphics Designing"
+        />
+        <FormField
+          fieldRef={teamManagerRef}
+          label="Team Manager"
+          placeholder="Enter User ID"
+        />
       </ModalForm>
     </Page>
   );

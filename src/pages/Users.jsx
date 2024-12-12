@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Page from "../components/Page";
 import UsersTable from "../components/UsersTable";
 
 import ModalForm from "../components/ModalForm";
 import FormField from "../components/FormField";
+import axios from "axios";
+import { API_URL } from "../config.mjs";
 
 const Users = () => {
   const [showModal, setShowModal] = useState(false);
+
+  const nameRef = useRef(null);
+  const designationRef = useRef(null);
+  const usernameRef = useRef(null);
+  const passwordRef = useRef(null);
 
   return (
     <>
@@ -31,13 +38,40 @@ const Users = () => {
           showModal={showModal}
           setShowModal={setShowModal}
           title="Add User"
-          onClick={() => {
+          onClick={async () => {
             setShowModal(false);
-            alert("user added");
+            const name = nameRef.current.value;
+            const role = "User";
+            const designation = designationRef.current.value;
+            const username = usernameRef.current.value;
+            const password = passwordRef.current.value;
+
+            const user = { name, role, designation, username, password };
+            await axios.post(`${API_URL}/user`, user);
+
+            window.location.reload();
           }}
         >
-          <FormField label="User Name" placeholder="Firstname Lastname" />
-          <FormField label="Team Name" placeholder="Team where user works" />
+          <FormField
+            label="User Name"
+            placeholder="Firstname Lastname"
+            fieldRef={nameRef}
+          />
+          <FormField
+            label="User Designation"
+            placeholder="Enter User Designation"
+            fieldRef={designationRef}
+          />
+          <FormField
+            label="Enter Username"
+            placeholder="Enter Username for User"
+            fieldRef={usernameRef}
+          />
+          <FormField
+            label="Enter Password"
+            placeholder="Enter Password for User"
+            fieldRef={passwordRef}
+          />
         </ModalForm>
       </Page>
     </>
