@@ -34,7 +34,7 @@ const TeamUsersList = ({ teamId }) => {
               <tr key={index} className="border-b border-indigo-100">
                 <td className="py-2 px-8 text-sm">{user._id}</td>
                 <td className="py-2 px-8 text-sm">{user.name}</td>
-                <td className="py-2 px-8 text-sm">{user.role}</td>
+                <td className="py-2 px-8 text-sm">{user.designation}</td>
                 <td className="py-2 px-8 text-sm flex gap-2">
                   <button
                     onClick={() => {

@@ -4,6 +4,7 @@ import { API_URL } from "../config.mjs";
 
 const AssetsTable = ({ category }) => {
   const [assets, setAssets] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -19,6 +20,17 @@ const AssetsTable = ({ category }) => {
 
     fetchData();
   }, []);
+
+  const reloadAssets = async () => {
+    try {
+      const assetRes = await axios.get(`${API_URL}/asset/category/${category}`);
+
+      setAssets(assetRes.data.data);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   return (
     <div className="bg-white rounded-md border border-indigo-100">
       <table className="w-full">
@@ -43,8 +55,9 @@ const AssetsTable = ({ category }) => {
                 <td className="py-2 px-8 text-sm">{asset.status}</td>
                 <td className="py-2 px-8 text-sm flex gap-2">
                   <button
-                    onClick={() => {
-                      alert("Scrap Item");
+                    onClick={async () => {
+                      await axios.put(`${API_URL}/asset/scrap/${asset._id}`);
+                      reloadAssets();
                     }}
                   >
                     <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
@@ -52,8 +65,9 @@ const AssetsTable = ({ category }) => {
                     </span>
                   </button>
                   <button
-                    onClick={() => {
-                      alert("Remove Item");
+                    onClick={async () => {
+                      await axios.delete(`${API_URL}/asset/${asset._id}`);
+                      reloadAssets();
                     }}
                   >
                     <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-red-700 duration-300 hover:bg-red-600 text-white inline-block">

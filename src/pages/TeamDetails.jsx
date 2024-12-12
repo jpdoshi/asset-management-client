@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import Page from "../components/Page";
-import { pascalToString } from "../utils/utils";
+import { capitalizeString } from "../utils/utils";
 
 import ModalForm from "../components/ModalForm";
 import FormField from "../components/FormField";
@@ -37,7 +37,7 @@ const TeamDetails = () => {
       <div className="flex justify-between">
         <div>
           <h1 className="text-3xl mb-1 font-medium">
-            {team && pascalToString(team.name)}
+            {team && capitalizeString(team.name)}
           </h1>
           <h2 className="font-medium text-lg opacity-60">
             Manage Team Members
@@ -57,7 +57,7 @@ const TeamDetails = () => {
         <h1 className="text-3xl mb-1 font-medium">Team Manager</h1>
         <h2 className="font-medium text-lg opacity-60">Manage Team Manager</h2>
       </div>
-      <div className="mt-4">
+      <div className="mt-4 grid grid-cols-3 gap-3">
         <UserCard title="Team Manager" value={team && `${team.manager.name}`} />
       </div>
       <ModalForm

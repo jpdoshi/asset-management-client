@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Page from "../components/Page";
 import Card from "../components/Card";
@@ -8,9 +8,14 @@ import FormField from "../components/FormField";
 
 import axios from "axios";
 import { API_URL } from "../config.mjs";
+import FormDropdown from "../components/FormDropdown";
+import FormTextArea from "../components/FormTextArea";
 
 const Assets = () => {
   const [showModal, setShowModal] = useState(false);
+  const [assetType, setAssetType] = useState(null);
+  const assetNameRef = useRef(null);
+  const assetConfRef = useRef(null);
 
   const [mouse, setMouse] = useState(null);
   const [keyboard, setKeyboard] = useState(null);
@@ -31,11 +36,6 @@ const Assets = () => {
         setMouse(mouseRes.data.data);
         setMonitor(monitorRes.data.data);
         setLaptop(laptopRes.data.data);
-
-        console.log("keyboard", keyboardRes.data.data);
-        console.log("mouse", mouseRes.data.data);
-        console.log("monitor", monitorRes.data.data);
-        console.log("laptop", laptopRes.data.data);
       } catch (error) {
         console.error(error.message);
       }
@@ -80,16 +80,34 @@ const Assets = () => {
         showModal={showModal}
         setShowModal={setShowModal}
         title="Add Asset"
-        onClick={() => {
+        onClick={async () => {
           setShowModal(false);
-          alert("asset added");
+
+          const category = assetType;
+          const product = assetNameRef.current.value;
+          const configuration = assetConfRef.current.value;
+
+          const asset = { category, product, configuration };
+          await axios.post(`${API_URL}/asset`, asset);
+          window.location.reload();
         }}
       >
-        <FormField
-          label="Asset Name"
-          placeholder="Mouse / Keyboard / Laptop / Monitor"
+        <FormDropdown
+          label="Asset Type"
+          text="Select Asset type"
+          options={["Mouse", "Keyboard", "Monitor", "Laptop"]}
+          valueRef={setAssetType}
         />
-        <FormField label="No of Units" placeholder="Enter units in digit" />
+        <FormField
+          fieldRef={assetNameRef}
+          label="Enter Name"
+          placeholder="Name of Product"
+        />
+        <FormTextArea
+          fieldRef={assetConfRef}
+          label="Enter Configuration"
+          placeholder="Product Configuration"
+        />
       </ModalForm>
     </Page>
   );

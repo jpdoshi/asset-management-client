@@ -47,10 +47,14 @@ const UserDeatils = () => {
         </button>
       </div>
       <div className="mt-4">
-        <div className="mt-4 grid grid-cols-2 gap-4">
+        <div className="mt-4 grid grid-cols-3 gap-4">
           <UserCard
             value={user && `${user.role == "User" ? "Member" : user.role}`}
             title="User Role"
+          />
+          <UserCard
+            value={user && `${user.designation}`}
+            title="User Designation"
           />
           <UserCard
             value={user && `${user.team ? user.team.name : "No Team"}`}

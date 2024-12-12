@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 import Cookie from "js-cookie";
-
-import users from "../utils/users.json";
+import axios from "axios";
+import { API_URL } from "../config.mjs";
 
 const Navbar = () => {
+  const [username, setUsername] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(true);
 
   const userRole = Cookie.get("user_role");
@@ -14,13 +15,17 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  let username;
+  useEffect(() => {
+    const fetchData = async () => {
+      const userRes = await axios.get(
+        `${API_URL}/user/${Cookie.get("user_id")}`
+      );
 
-  for (let user of users.users) {
-    if (user.id == Cookie.get("user_id").toString()) {
-      username = user.name;
-    }
-  }
+      setUsername(userRes.data.data.name);
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <nav className="bg-white border-b border-indigo-100 absolute w-screen z-50 top-0">
@@ -49,8 +54,11 @@ const Navbar = () => {
             id="user-dropdown"
           >
             <div className="px-4 py-2">
-              <span className="block text-sm truncate text-gray-900">
+              <span className="text-lg font-bold block truncate text-gray-900">
                 {username}
+              </span>
+              <span className="block text-sm truncate text-gray-400">
+                {userRole}
               </span>
             </div>
             <ul className="py-1.5" aria-labelledby="user-menu-button">

@@ -1,13 +1,9 @@
 export const capitalizeString = (_str) => {
-  return String(_str[0]).toUpperCase() + String(_str).slice(1);
-};
-
-export const pascalToString = (_str) => {
   let newStr = "";
 
-  for (let word of _str.split("-")) {
-    newStr += capitalizeString(word + " ");
+  for (let word of _str.split(" ")) {
+    newStr += String(word[0]).toUpperCase() + String(word).slice(1) + " ";
   }
 
-  return newStr.trim();
+  return newStr;
 };
