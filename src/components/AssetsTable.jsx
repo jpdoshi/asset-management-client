@@ -1,6 +1,24 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { API_URL } from "../config.mjs";
 
-const AssetsTable = () => {
+const AssetsTable = ({ category }) => {
+  const [assets, setAssets] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const assetRes = await axios.get(
+          `${API_URL}/asset/category/${category}`
+        );
+
+        setAssets(assetRes.data.data);
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <div className="bg-white rounded-md border border-indigo-100">
       <table className="w-full">
@@ -9,135 +27,42 @@ const AssetsTable = () => {
             <td className="py-2 px-8">ID</td>
             <td className="py-2 px-8">Product</td>
             <td className="py-2 px-8">User</td>
+            <td className="py-2 px-8">Status</td>
             <td className="py-2 px-8">Action</td>
           </tr>
         </thead>
         <tbody>
-          <tr className="border-b border-indigo-100">
-            <td className="py-2 px-8 text-sm">30005338</td>
-            <td className="py-2 px-8 text-sm">Product #0</td>
-            <td className="py-2 px-8 text-sm">Tyrion Lannister</td>
-            <td className="py-2 px-8 text-sm flex gap-2">
-              <button
-                onClick={() => {
-                  alert("Scrap Item");
-                }}
-              >
-                <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
-                  Scrap
-                </span>
-              </button>
-              <button
-                onClick={() => {
-                  alert("Remove Item");
-                }}
-              >
-                <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-red-700 duration-300 hover:bg-red-600 text-white inline-block">
-                  Remove
-                </span>
-              </button>
-            </td>
-          </tr>
-          <tr className="border-b border-indigo-100">
-            <td className="py-2 px-8 text-sm">35902178</td>
-            <td className="py-2 px-8 text-sm">Product #1</td>
-            <td className="py-2 px-8 text-sm">Jon Snow</td>
-            <td className="py-2 px-8 text-sm flex gap-2">
-              <button
-                onClick={() => {
-                  alert("Scrap Item");
-                }}
-              >
-                <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
-                  Scrap
-                </span>
-              </button>
-              <button
-                onClick={() => {
-                  alert("Remove Item");
-                }}
-              >
-                <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-red-700 duration-300 hover:bg-red-600 text-white inline-block">
-                  Remove
-                </span>
-              </button>
-            </td>
-          </tr>
-          <tr className="border-b border-indigo-100">
-            <td className="py-2 px-8 text-sm">63421974</td>
-            <td className="py-2 px-8 text-sm">Product #2</td>
-            <td className="py-2 px-8 text-sm">Jaime Lannister</td>
-            <td className="py-2 px-8 text-sm flex gap-2">
-              <button
-                onClick={() => {
-                  alert("Scrap Item");
-                }}
-              >
-                <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
-                  Scrap
-                </span>
-              </button>
-              <button
-                onClick={() => {
-                  alert("Remove Item");
-                }}
-              >
-                <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-red-700 duration-300 hover:bg-red-600 text-white inline-block">
-                  Remove
-                </span>
-              </button>
-            </td>
-          </tr>
-          <tr className="border-b border-indigo-100">
-            <td className="py-2 px-8 text-sm">68952180</td>
-            <td className="py-2 px-8 text-sm">Product #3</td>
-            <td className="py-2 px-8 text-sm">Cersei Lannister</td>
-            <td className="py-2 px-8 text-sm flex gap-2">
-              <button
-                onClick={() => {
-                  alert("Scrap Item");
-                }}
-              >
-                <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
-                  Scrap
-                </span>
-              </button>
-              <button
-                onClick={() => {
-                  alert("Remove Item");
-                }}
-              >
-                <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-red-700 duration-300 hover:bg-red-600 text-white inline-block">
-                  Remove
-                </span>
-              </button>
-            </td>
-          </tr>
-          <tr className="border-b border-indigo-100">
-            <td className="py-2 px-8 text-sm">46736186</td>
-            <td className="py-2 px-8 text-sm">Product #4</td>
-            <td className="py-2 px-8 text-sm">Viserys Targeryen</td>
-            <td className="py-2 px-8 text-sm flex gap-2">
-              <button
-                onClick={() => {
-                  alert("Scrap Item");
-                }}
-              >
-                <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
-                  Scrap
-                </span>
-              </button>
-              <button
-                onClick={() => {
-                  alert("Remove Item");
-                }}
-              >
-                <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-red-700 duration-300 hover:bg-red-600 text-white inline-block">
-                  Remove
-                </span>
-              </button>
-            </td>
-          </tr>
+          {assets &&
+            assets.map((asset, index) => (
+              <tr key={index} className="border-b border-indigo-100">
+                <td className="py-2 px-8 text-sm">{asset._id}</td>
+                <td className="py-2 px-8 text-sm">{asset.product}</td>
+                <td className="py-2 px-8 text-sm">
+                  {asset.user ? asset.user.name : "Unassigned"}
+                </td>
+                <td className="py-2 px-8 text-sm">{asset.status}</td>
+                <td className="py-2 px-8 text-sm flex gap-2">
+                  <button
+                    onClick={() => {
+                      alert("Scrap Item");
+                    }}
+                  >
+                    <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
+                      Scrap
+                    </span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      alert("Remove Item");
+                    }}
+                  >
+                    <span className="opacity-80 text-sm rounded-md px-2.5 py-1.5 bg-red-700 duration-300 hover:bg-red-600 text-white inline-block">
+                      Remove
+                    </span>
+                  </button>
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>

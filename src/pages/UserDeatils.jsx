@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import Page from "../components/Page";
@@ -6,24 +6,37 @@ import ModalForm from "../components/ModalForm";
 import UserCard from "../components/UserCard";
 import FormField from "../components/FormField";
 import UserAssetsList from "../components/UserAssetsList";
+import axios from "axios";
+import { API_URL } from "../config.mjs";
 
 const UserDeatils = () => {
+  const [user, setUser] = useState(null);
+
   const params = useParams();
-  const userSlug = params.slug;
+  const userId = params.slug;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const userRes = await axios.get(`${API_URL}/user/${userId}`);
+        setUser(userRes.data.data);
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const [showRemoveModal, setShowRemoveModal] = useState(false);
   const [showAssetModal, setShowAssetModal] = useState(false);
 
   const navigate = useNavigate();
-
-  const user = {
-    name: "Jainam Doshi",
-  };
   return (
     <Page>
       <div className="flex justify-between">
         <div>
-          <h1 className="text-3xl mb-1 font-medium">{user.name}</h1>
+          <h1 className="text-3xl mb-1 font-medium">{user && user.name}</h1>
           <h2 className="font-medium text-lg opacity-60">Manage User</h2>
         </div>
         <button
@@ -35,8 +48,14 @@ const UserDeatils = () => {
       </div>
       <div className="mt-4">
         <div className="mt-4 grid grid-cols-2 gap-4">
-          <UserCard value="Frontend Developer" title="User Role" />
-          <UserCard value="Software Development" title="Team" />
+          <UserCard
+            value={user && `${user.role == "User" ? "Member" : user.role}`}
+            title="User Role"
+          />
+          <UserCard
+            value={user && `${user.team ? user.team.name : "No Team"}`}
+            title="Team"
+          />
         </div>
       </div>
       <div className="mt-8 flex justify-between">

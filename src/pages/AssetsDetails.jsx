@@ -17,7 +17,7 @@ const AssetsDetails = () => {
         Manage {capitalizeString(assetType) + "s"}
       </h2>
       <div className="mt-4">
-        <AssetsTable />
+        <AssetsTable category={assetType} />
       </div>
     </Page>
   );

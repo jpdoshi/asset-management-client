@@ -7,7 +7,6 @@ import FormField from "../components/FormField";
 
 const Teams = () => {
   const [showModal, setShowModal] = useState(false);
-
   return (
     <Page>
       <div className="flex justify-between">
