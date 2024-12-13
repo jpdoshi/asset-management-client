@@ -3,7 +3,7 @@ import ModalForm from "./ModalForm";
 import FormField from "./FormField";
 import Edit from "./Edit";
 
-const UserCard = ({ title, value }) => {
+const UserCard = ({ title, placeholder, value, onClick, fieldRef, noEdit }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -11,8 +11,12 @@ const UserCard = ({ title, value }) => {
       <h1 className="text-3xl mb-2 font-medium">{value}</h1>
       <p className="opacity-50 font-semibold">{title}</p>
       <div className="flex justify-end">
-        <button onClick={() => setShowModal(true)}>
-          <span className="opacity-80 text-sm rounded-md p-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
+        <button onClick={() => setShowModal(true)} disabled={noEdit}>
+          <span
+            className={`${
+              noEdit ? "opacity-50" : ""
+            } text-sm rounded-md p-1.5 bg-indigo-600 duration-300 hover:bg-indigo-500 text-white inline-block`}
+          >
             <Edit />
           </span>
         </button>
@@ -21,12 +25,13 @@ const UserCard = ({ title, value }) => {
         showModal={showModal}
         setShowModal={setShowModal}
         title={`Edit ${title}`}
-        onClick={() => {
-          setShowModal(false);
-          alert(`${title} changed successfuly`);
-        }}
+        onClick={onClick}
       >
-        <FormField label={title} placeholder={`current value: ${value}`} />
+        <FormField
+          fieldRef={fieldRef}
+          label={title}
+          placeholder={`${placeholder ? placeholder : "Enter User ID"}`}
+        />
       </ModalForm>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import Page from "../components/Page";
@@ -31,6 +31,9 @@ const UserDeatils = () => {
   const [showRemoveModal, setShowRemoveModal] = useState(false);
   const [showAssetModal, setShowAssetModal] = useState(false);
 
+  const designationRef = useRef(null);
+  const teamRef = useRef(null);
+
   const navigate = useNavigate();
   return (
     <Page>
@@ -51,14 +54,31 @@ const UserDeatils = () => {
           <UserCard
             value={user && `${user.role == "User" ? "Member" : user.role}`}
             title="User Role"
+            noEdit
           />
           <UserCard
             value={user && `${user.designation}`}
             title="User Designation"
+            placeholder="Enter User Designation"
+            fieldRef={designationRef}
+            onClick={async () => {
+              await axios.put(`${API_URL}/user/${user._id}`, {
+                designation: designationRef.current.value,
+              });
+              window.location.reload();
+            }}
           />
           <UserCard
             value={user && `${user.team ? user.team.name : "No Team"}`}
             title="Team"
+            fieldRef={teamRef}
+            placeholder="Enter Team ID"
+            onClick={async () => {
+              await axios.put(`${API_URL}/user/${user._id}`, {
+                team: teamRef.current.value,
+              });
+              window.location.reload();
+            }}
           />
         </div>
       </div>
@@ -81,10 +101,10 @@ const UserDeatils = () => {
         showModal={showRemoveModal}
         setShowModal={setShowRemoveModal}
         title="Remove User"
-        onClick={() => {
+        onClick={async () => {
+          await axios.delete(`${API_URL}/user/${user._id}`);
           setShowRemoveModal(false);
           navigate("/users");
-          alert("user removed");
         }}
       >
         <p>

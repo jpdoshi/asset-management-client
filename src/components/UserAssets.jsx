@@ -19,7 +19,7 @@ const UserAssets = () => {
             <td className="py-2 px-8 text-sm">Laptop</td>
             <td className="py-2 px-8 text-sm">
               <button onClick={() => alert("request maintanance")}>
-                <span className="opacity-80 text-sm rounded px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
+                <span className="text-sm rounded px-2.5 py-1.5 bg-indigo-600 duration-300 hover:bg-indigo-500 text-white inline-block">
                   Request Maintanance
                 </span>
               </button>
@@ -31,7 +31,7 @@ const UserAssets = () => {
             <td className="py-2 px-8 text-sm">Mouse</td>
             <td className="py-2 px-8 text-sm">
               <button onClick={() => alert("request maintanance")}>
-                <span className="opacity-80 text-sm rounded px-2.5 py-1.5 bg-indigo-700 duration-300 hover:bg-indigo-600 text-white inline-block">
+                <span className="text-sm rounded px-2.5 py-1.5 bg-indigo-600 duration-300 hover:bg-indigo-500 text-white inline-block">
                   Request Maintanance
                 </span>
               </button>

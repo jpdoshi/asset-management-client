@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import Page from "../components/Page";
@@ -13,6 +13,8 @@ import { API_URL } from "../config.mjs";
 
 const TeamDetails = () => {
   const [team, setTeam] = useState(null);
+  const userIdRef = useRef(null);
+  const editUserRef = useRef(null);
 
   const params = useParams();
   const teamId = params.slug;
@@ -58,18 +60,45 @@ const TeamDetails = () => {
         <h2 className="font-medium text-lg opacity-60">Manage Team Manager</h2>
       </div>
       <div className="mt-4 grid grid-cols-3 gap-3">
-        <UserCard title="Team Manager" value={team && `${team.manager.name}`} />
+        <UserCard
+          fieldRef={editUserRef}
+          title="Team Manager"
+          value={team && `${team.manager.name}`}
+          onClick={async () => {
+            await axios.put(`${API_URL}/user/${team.manager._id}`, {
+              role: "User",
+            });
+            await axios.put(`${API_URL}/user/${editUserRef.current.value}`, {
+              role: "Manager",
+              team: team._id,
+            });
+            await axios.put(`${API_URL}/team/${team._id}`, {
+              manager: editUserRef.current.value,
+            });
+
+            window.location.reload();
+          }}
+        />
       </div>
       <ModalForm
         showModal={showMemberModal}
         setShowModal={setShowMemberModal}
         title="Add Team Member"
-        onClick={() => {
+        onClick={async () => {
           setShowMemberModal(false);
-          alert("team member added");
+
+          await axios.put(`${API_URL}/user/${userIdRef.current.value}`, {
+            team: team._id,
+          });
+
+          window.location.reload();
         }}
       >
-        <FormField label="User Name" placeholder="Firstname Lastname" />
+        <FormField
+          fieldRef={userIdRef}
+          label="User ID"
+          placeholder="Enter User ID"
+        />
       </ModalForm>
     </Page>
   );

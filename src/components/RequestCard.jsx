@@ -18,12 +18,12 @@ const RequestCard = ({ user, team, asset }) => {
       </div>
       <div className="flex gap-2">
         <button onClick={() => alert("accept request")}>
-          <span className="opacity-80 text-sm rounded-md p-0.5 bg-green-700 duration-300 hover:bg-green-600 text-white inline-block">
+          <span className="text-sm rounded-md p-0.5 bg-green-700 duration-300 hover:bg-green-600 text-white inline-block">
             <Tick />
           </span>
         </button>
         <button onClick={() => alert("decline request")}>
-          <span className="opacity-80 text-sm rounded-md p-0.5 bg-red-700 duration-300 hover:bg-red-600 text-white inline-block">
+          <span className="text-sm rounded-md p-0.5 bg-red-700 duration-300 hover:bg-red-600 text-white inline-block">
             <Cross />
           </span>
         </button>
