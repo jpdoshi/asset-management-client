@@ -1,6 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+import axios from "axios";
+import Cookie from "js-cookie";
+import { API_URL } from "../config.mjs";
 
 const UserAssets = () => {
+  const [assets, setAssets] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const assetsRes = await axios.get(
+          `${API_URL}/asset/user/${Cookie.get("user_id")}`
+        );
+        setAssets(assetsRes.data.data);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className="bg-white rounded-md border border-indigo-100">
       <table className="w-full">
@@ -13,30 +34,21 @@ const UserAssets = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className="border-b border-indigo-100">
-            <td className="py-2 px-8 text-sm">30005338</td>
-            <td className="py-2 px-8 text-sm">Lenovo LOQ 2024</td>
-            <td className="py-2 px-8 text-sm">Laptop</td>
-            <td className="py-2 px-8 text-sm">
-              <button onClick={() => alert("request maintanance")}>
-                <span className="text-sm rounded px-2.5 py-1.5 bg-indigo-600 duration-300 hover:bg-indigo-500 text-white inline-block">
-                  Request Maintanance
-                </span>
-              </button>
-            </td>
-          </tr>
-          <tr className="border-b border-indigo-100">
-            <td className="py-2 px-8 text-sm">63421974</td>
-            <td className="py-2 px-8 text-sm">Logitech M055</td>
-            <td className="py-2 px-8 text-sm">Mouse</td>
-            <td className="py-2 px-8 text-sm">
-              <button onClick={() => alert("request maintanance")}>
-                <span className="text-sm rounded px-2.5 py-1.5 bg-indigo-600 duration-300 hover:bg-indigo-500 text-white inline-block">
-                  Request Maintanance
-                </span>
-              </button>
-            </td>
-          </tr>
+          {assets &&
+            assets.map((asset, index) => (
+              <tr key={index} className="border-b border-indigo-100">
+                <td className="py-2 px-8 text-sm">{asset._id}</td>
+                <td className="py-2 px-8 text-sm">{asset.product}</td>
+                <td className="py-2 px-8 text-sm">{asset.category}</td>
+                <td className="py-2 px-8 text-sm">
+                  <button onClick={() => alert("request maintanance")}>
+                    <span className="text-sm rounded px-2.5 py-1.5 bg-indigo-600 duration-300 hover:bg-indigo-500 text-white inline-block">
+                      Request Maintanance
+                    </span>
+                  </button>
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>

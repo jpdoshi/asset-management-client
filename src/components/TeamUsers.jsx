@@ -47,11 +47,19 @@ const TeamUsers = () => {
                 <td className="py-2 px-8 text-sm">{user.designation}</td>
                 <td className="py-2 px-8 text-sm">
                   <button
-                    onClick={() => {
-                      alert("remove member");
+                    onClick={async () => {
+                      await axios.put(`${API_URL}/user/${user._id}`, {
+                        team: null,
+                      });
+                      window.location.reload();
                     }}
+                    disabled={user.role == "Manager"}
                   >
-                    <span className="text-sm rounded-md p-0.5 bg-red-700 duration-300 hover:bg-red-600 text-white inline-block">
+                    <span
+                      className={`${
+                        user.role == "Manager" ? "opacity-50" : ""
+                      } text-sm rounded-md p-0.5 bg-red-700 duration-300 hover:bg-red-600 text-white inline-block`}
+                    >
                       <Cross />
                     </span>
                   </button>

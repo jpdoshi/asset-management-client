@@ -1,9 +1,29 @@
-import React from "react";
-import Cross from "./Cross";
+import React, { useEffect, useState } from "react";
 
 import Cookie from "js-cookie";
+import axios from "axios";
+import { API_URL } from "../config.mjs";
 
 const TeamAssets = () => {
+  const [assets, setAssets] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const userRes = await axios.get(
+          `${API_URL}/user/${Cookie.get("user_id")}`
+        );
+        const teamId = userRes.data.data.team._id;
+        const assetsRes = await axios.get(`${API_URL}/asset/team/${teamId}`);
+        setAssets(assetsRes.data.data);
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className="bg-white rounded-md border border-indigo-100">
       <table className="w-full">
@@ -19,63 +39,17 @@ const TeamAssets = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className="border-b border-indigo-100">
-            <td className="py-2 px-8 text-sm">30005338</td>
-            <td className="py-2 px-8 text-sm">Logitech M022</td>
-            <td className="py-2 px-8 text-sm">Mouse</td>
-            <td className="py-2 px-8 text-sm">Robb Stark</td>
-            {Cookie.get("user_role") == "User" ? null : (
-              <td className="py-2 px-8 text-sm">
-                <button
-                  onClick={() => {
-                    alert("remove item");
-                  }}
-                >
-                  <span className="text-sm rounded-md p-0.5 bg-red-700 duration-300 hover:bg-red-600 text-white inline-block">
-                    <Cross />
-                  </span>
-                </button>
-              </td>
-            )}
-          </tr>
-          <tr className="border-b border-indigo-100">
-            <td className="py-2 px-8 text-sm">35902178</td>
-            <td className="py-2 px-8 text-sm">MSI Katana 15</td>
-            <td className="py-2 px-8 text-sm">Laptop</td>
-            <td className="py-2 px-8 text-sm">Joffrey Baratheon</td>
-            {Cookie.get("user_role") == "User" ? null : (
-              <td className="py-2 px-8 text-sm">
-                <button
-                  onClick={() => {
-                    alert("remove item");
-                  }}
-                >
-                  <span className="text-sm rounded-md p-0.5 bg-red-700 duration-300 hover:bg-red-600 text-white inline-block">
-                    <Cross />
-                  </span>
-                </button>
-              </td>
-            )}
-          </tr>
-          <tr className="border-b border-indigo-100">
-            <td className="py-2 px-8 text-sm">35902178</td>
-            <td className="py-2 px-8 text-sm">Asus TUF F15</td>
-            <td className="py-2 px-8 text-sm">Laptop</td>
-            <td className="py-2 px-8 text-sm">Robert Baratheon</td>
-            {Cookie.get("user_role") == "User" ? null : (
-              <td className="py-2 px-8 text-sm">
-                <button
-                  onClick={() => {
-                    alert("remove item");
-                  }}
-                >
-                  <span className="text-sm rounded-md p-0.5 bg-red-700 duration-300 hover:bg-red-600 text-white inline-block">
-                    <Cross />
-                  </span>
-                </button>
-              </td>
-            )}
-          </tr>
+          {assets &&
+            assets.map((asset, index) => (
+              <tr key={index} className="border-b border-indigo-100">
+                <td className="py-2 px-8 text-sm">{asset._id}</td>
+                <td className="py-2 px-8 text-sm">{asset.product}</td>
+                <td className="py-2 px-8 text-sm">{asset.category}</td>
+                <td className="py-2 px-8 text-sm">
+                  {asset.user ? asset.user.name : "Unassigned"}
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>

@@ -4,9 +4,10 @@ const Footer = () => {
   return (
     <footer className="bg-white border-t border-indigo-100 py-5 text-center">
       <p className="font-medium text-lg">
-        Made with <span className="font-bold text-red-500">♥</span> by{" "}
+        Copyright &copy; 2024{" "}
         <a
           href="https://github.com/jpdoshi"
+          target="_blank"
           className="underline underline-offset-2"
         >
           jpdoshi
