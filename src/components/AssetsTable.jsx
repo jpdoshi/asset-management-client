@@ -70,7 +70,7 @@ const AssetsTable = ({ category }) => {
                       reloadAssets();
                     }}
                   >
-                    <span className="text-sm rounded-md px-2.5 py-1.5 bg-red-700 duration-300 hover:bg-red-600 text-white inline-block">
+                    <span className="text-sm rounded-md px-2.5 py-1.5 bg-red-600 duration-300 hover:bg-red-500 text-white inline-block">
                       Remove
                     </span>
                   </button>

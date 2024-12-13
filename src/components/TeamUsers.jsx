@@ -58,7 +58,7 @@ const TeamUsers = () => {
                     <span
                       className={`${
                         user.role == "Manager" ? "opacity-50" : ""
-                      } text-sm rounded-md p-0.5 bg-red-700 duration-300 hover:bg-red-600 text-white inline-block`}
+                      } text-sm rounded-md p-0.5 bg-red-600 duration-300 hover:bg-red-500 text-white inline-block`}
                     >
                       <Cross />
                     </span>
