@@ -8,6 +8,8 @@ import ModalForm from "../components/ModalForm";
 import FormField from "../components/FormField";
 import TeamUsersList from "../components/TeamUsersList";
 import UserCard from "../components/UserCard";
+import TeamDetailAssets from "../components/TeamDetailAssets";
+
 import axios from "axios";
 import { API_URL } from "../config.mjs";
 
@@ -54,6 +56,13 @@ const TeamDetails = () => {
       </div>
       <div className="mt-4">
         <TeamUsersList teamId={teamId} />
+      </div>
+      <div className="mt-8">
+        <h1 className="text-3xl mb-1 font-medium">Assets</h1>
+        <h2 className="font-medium text-lg opacity-60">Manage Team Assets</h2>
+      </div>
+      <div className="mt-4">
+        <TeamDetailAssets />
       </div>
       <div className="mt-8">
         <h1 className="text-3xl mb-1 font-medium">Team Manager</h1>

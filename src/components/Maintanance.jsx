@@ -1,6 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+import axios from "axios";
+import { API_URL } from "../config.mjs";
 
 const Maintanance = () => {
+  const [recents, setRecents] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const recentsRes = await axios.get(`${API_URL}/asset/recents`);
+        setRecents(recentsRes.data.data);
+        console.log(recentsRes.data.data);
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className="bg-white rounded-md border border-indigo-100">
       <table className="w-full">
@@ -14,76 +33,18 @@ const Maintanance = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className="border-b border-indigo-100">
-            <td className="py-2 px-8 text-sm">30005338</td>
-            <td className="py-2 px-8 text-sm">Asus ROG</td>
-            <td className="py-2 px-8 text-sm">Laptop</td>
-            <td className="py-2 px-8 text-sm">Tyrion Lannister</td>
-            <td className="py-2 px-8 text-sm">In Use</td>
-          </tr>
-          <tr className="border-b border-indigo-100">
-            <td className="py-2 px-8 text-sm">35902178</td>
-            <td className="py-2 px-8 text-sm">Acer SA222Q</td>
-            <td className="py-2 px-8 text-sm">Monitor</td>
-            <td className="py-2 px-8 text-sm">Jon Snow</td>
-            <td className="py-2 px-8 text-sm">In Repair</td>
-          </tr>
-          <tr className="border-b border-indigo-100">
-            <td className="py-2 px-8 text-sm">63421974</td>
-            <td className="py-2 px-8 text-sm">Logitech K12</td>
-            <td className="py-2 px-8 text-sm">Keyboard</td>
-            <td className="py-2 px-8 text-sm">Cersei Lannister</td>
-            <td className="py-2 px-8 text-sm">Fixed</td>
-          </tr>
-          <tr className="border-b border-indigo-100">
-            <td className="py-2 px-8 text-sm">68952180</td>
-            <td className="py-2 px-8 text-sm">Arctic Fox</td>
-            <td className="py-2 px-8 text-sm">Mouse</td>
-            <td className="py-2 px-8 text-sm">Robert Baratheon</td>
-            <td className="py-2 px-8 text-sm">In Use</td>
-          </tr>
-          <tr className="border-b border-indigo-100">
-            <td className="py-2 px-8 text-sm">46736186</td>
-            <td className="py-2 px-8 text-sm">HP S500</td>
-            <td className="py-2 px-8 text-sm">Mouse</td>
-            <td className="py-2 px-8 text-sm">Theon Greyjoy</td>
-            <td className="py-2 px-8 text-sm">In Use</td>
-          </tr>
-          <tr className="border-b border-indigo-100">
-            <td className="py-2 px-8 text-sm">67325649</td>
-            <td className="py-2 px-8 text-sm">Redragon</td>
-            <td className="py-2 px-8 text-sm">Keyboard</td>
-            <td className="py-2 px-8 text-sm">Sansa Stark</td>
-            <td className="py-2 px-8 text-sm">In Use</td>
-          </tr>
-          <tr className="border-b border-indigo-100">
-            <td className="py-2 px-8 text-sm">38240298</td>
-            <td className="py-2 px-8 text-sm">Dell G15</td>
-            <td className="py-2 px-8 text-sm">Laptop</td>
-            <td className="py-2 px-8 text-sm">Khal Drogo</td>
-            <td className="py-2 px-8 text-sm">In Use</td>
-          </tr>
-          <tr className="border-b border-indigo-100">
-            <td className="py-2 px-8 text-sm">94608416</td>
-            <td className="py-2 px-8 text-sm">LG 27-inch FHD</td>
-            <td className="py-2 px-8 text-sm">Monitor</td>
-            <td className="py-2 px-8 text-sm">Robb Stark</td>
-            <td className="py-2 px-8 text-sm">In Use</td>
-          </tr>
-          <tr className="border-b border-indigo-100">
-            <td className="py-2 px-8 text-sm">42033235</td>
-            <td className="py-2 px-8 text-sm">Lenovo LOQ</td>
-            <td className="py-2 px-8 text-sm">Laptop</td>
-            <td className="py-2 px-8 text-sm">Viserys Targeryn</td>
-            <td className="py-2 px-8 text-sm">In Use</td>
-          </tr>
-          <tr className="border-b border-indigo-100">
-            <td className="py-2 px-8 text-sm">87987420</td>
-            <td className="py-2 px-8 text-sm">MSI G274F</td>
-            <td className="py-2 px-8 text-sm">Monitor</td>
-            <td className="py-2 px-8 text-sm">Samwell Tarley</td>
-            <td className="py-2 px-8 text-sm text-a">Scrap</td>
-          </tr>
+          {recents &&
+            recents.map((recent, index) => (
+              <tr key={index} className="border-b border-indigo-100">
+                <td className="py-2 px-8 text-sm">{recent._id}</td>
+                <td className="py-2 px-8 text-sm">{recent.product}</td>
+                <td className="py-2 px-8 text-sm">{recent.category}</td>
+                <td className="py-2 px-8 text-sm">
+                  {recent.user ? recent.user.name : "Unassigned"}
+                </td>
+                <td className="py-2 px-8 text-sm">{recent.status}</td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>

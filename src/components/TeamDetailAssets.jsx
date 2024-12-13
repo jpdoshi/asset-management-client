@@ -5,16 +5,20 @@ import axios from "axios";
 import { API_URL } from "../config.mjs";
 import Cross from "./Cross";
 
-const TeamAssets = () => {
+const TeamDetailAssets = () => {
   const [assets, setAssets] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userRes = await axios.get(
-          `${API_URL}/user/${Cookie.get("user_id")}`
-        );
-        const teamId = userRes.data.data.team._id;
+        const path = window.location.pathname;
+        let pathList = [];
+
+        for (let p of path.split("/")) {
+          pathList.push(p);
+        }
+
+        const teamId = pathList[pathList.length - 1];
         const assetsRes = await axios.get(`${API_URL}/asset/team/${teamId}`);
         setAssets(assetsRes.data.data);
       } catch (error) {
@@ -69,4 +73,4 @@ const TeamAssets = () => {
   );
 };
 
-export default TeamAssets;
+export default TeamDetailAssets;
