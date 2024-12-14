@@ -41,7 +41,7 @@ const TeamsTable = () => {
                 <td className="py-2 px-8 text-sm">{team.manager.name}</td>
                 <td className="py-2 px-8 text-sm">
                   <Link to={`/teams/${team._id}`}>
-                    <span className="text-sm rounded-md px-2.5 py-1.5 bg-gradient-to-r from-indigo-400  to-indigo-600 text-white inline-block shadow-md shadow-gray-200">
+                    <span className="text-sm rounded-md px-2.5 py-1.5 bg-gradient-to-r from-indigo-500  to-indigo-600 text-white inline-block shadow-md shadow-gray-200">
                       <Arrow />
                     </span>
                   </Link>
