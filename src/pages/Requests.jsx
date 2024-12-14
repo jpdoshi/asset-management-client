@@ -30,12 +30,7 @@ const Requests = () => {
             (user) =>
               user.requests &&
               user.requests.map((asset, i2) => (
-                <RequestCard
-                  key={i2}
-                  asset={asset}
-                  user={user.name}
-                  type="User"
-                />
+                <RequestCard key={i2} asset={asset} user={user} type="User" />
               ))
           )}
 
@@ -48,7 +43,7 @@ const Requests = () => {
                 <RequestCard
                   key={i2}
                   asset={asset.asset}
-                  user={team.name}
+                  user={team}
                   type="Team"
                 />
               ))

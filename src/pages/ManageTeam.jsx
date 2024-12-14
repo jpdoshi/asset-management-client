@@ -77,7 +77,7 @@ const ManageTeam = () => {
 
           await axios.put(`${API_URL}/user/${memberRef.current.value}`, {
             team,
-            role: "user",
+            role: "User",
           });
           window.location.reload();
         }}
