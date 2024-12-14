@@ -7,14 +7,16 @@ import axios from "axios";
 import { API_URL } from "../config.mjs";
 
 import ModalForm from "../components/ModalForm";
-import FormField from "../components/FormField";
 import UserAssets from "../components/UserAssets";
 import ProfileCard from "../components/ProfileCard";
 import { capitalizeString } from "../utils/utils";
+import FormDropdown from "../components/FormDropdown";
 
 const UserDashboard = () => {
   const [showModal, setShowModal] = useState(false);
   const [user, setUser] = useState(null);
+
+  const [assetType, setAssetType] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,12 +61,25 @@ const UserDashboard = () => {
         title="Request Asset"
         showModal={showModal}
         setShowModal={setShowModal}
-        onClick={() => {
+        onClick={async () => {
           setShowModal(false);
-          alert("request successfully");
+
+          try {
+            await axios.post(`${API_URL}/user/request-asset/${user._id}`, {
+              asset: assetType,
+            });
+            alert("Request added successfuly");
+          } catch (error) {
+            alert(`error occured: ${error.message}`);
+          }
         }}
       >
-        <FormField label="Asset ID" placeholder="Enter Asset ID" />
+        <FormDropdown
+          label="Select Asset Type"
+          text="Asset Type"
+          options={["Monitor", "Mouse", "Keyboard", "Laptop"]}
+          valueRef={setAssetType}
+        />
       </ModalForm>
     </Page>
   );

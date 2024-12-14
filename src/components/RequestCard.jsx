@@ -6,22 +6,16 @@ import Cross from "./Cross";
 import ModalForm from "./ModalForm";
 import FormField from "./FormField";
 
-const RequestCard = ({ user, team, asset }) => {
+const RequestCard = ({ user, asset, type }) => {
   const [showModal, setShowModal] = useState(false);
   const assetRef = useRef(null);
 
   return (
     <div className="px-6 py-4 flex justify-between rounded-md bg-white border border-indigo-100 shadow-lg shadow-indigo-50">
       <div className="my-auto">
-        <h1 className="text-2xl font-medium mb-1">{asset}</h1>
-        <ul className="flex gap-3">
-          <li>
-            <span className="opacity-50 font-medium">{user}</span>
-          </li>
-          <li>
-            <span className="opacity-50 font-medium">{team}</span>
-          </li>
-        </ul>
+        <h1 className="text-2xl font-medium">{asset}</h1>
+        <span className="opacity-50 font-medium">{user}</span>
+        <span className="text-indigo-400 mx-2 font-medium">{type}</span>
       </div>
       <div className="flex gap-2">
         <button

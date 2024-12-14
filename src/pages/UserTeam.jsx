@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import Page from "../components/Page";
 
 import ModalForm from "../components/ModalForm";
-import FormField from "../components/FormField";
 import ProfileCard from "../components/ProfileCard";
 import TeamAssets from "../components/TeamAssets";
 
@@ -11,11 +10,13 @@ import Cookie from "js-cookie";
 
 import axios from "axios";
 import { API_URL } from "../config.mjs";
+import FormDropdown from "../components/FormDropdown";
 
 const UserTeam = () => {
   const [showModal, setShowModal] = useState(false);
   const [team, setTeam] = useState(null);
   const [teamUsers, setTeamUsers] = useState([]);
+  const [assetType, setAssetType] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -73,12 +74,26 @@ const UserTeam = () => {
         title="Request Asset for your Team"
         showModal={showModal}
         setShowModal={setShowModal}
-        onClick={() => {
-          alert("request successfuly");
+        onClick={async () => {
           setShowModal(false);
+
+          try {
+            await axios.post(`${API_URL}/team/request-asset/${team._id}`, {
+              asset: assetType,
+              requestedBy: Cookie.get("user_id"),
+            });
+            alert("Request added successfuly");
+          } catch (error) {
+            alert(`Error Occured: ${error.message}`);
+          }
         }}
       >
-        <FormField label="Asset ID" placeholder="Enter Asset ID" />
+        <FormDropdown
+          label="Select Asset Type"
+          options={["Mouse", "Monitor", "Keyboard", "Laptop"]}
+          text="Asset Type"
+          valueRef={setAssetType}
+        />
       </ModalForm>
     </Page>
   );
