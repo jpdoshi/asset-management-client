@@ -13,7 +13,7 @@ const FormDropdown = ({ label, text = "Select", valueRef, options }) => {
         }}
         id="dropdownDefaultButton"
         data-dropdown-toggle="dropdown"
-        className="text-white bg-indigo-600 hover:bg-indigo-500 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg px-5 py-2.5 text-center inline-flex items-center"
+        className="text-white bg-gradient-to-r from-indigo-400 to-indigo-600 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg px-5 py-2.5 text-center inline-flex items-center"
         type="button"
       >
         {selectedOption || text}

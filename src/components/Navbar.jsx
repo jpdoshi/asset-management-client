@@ -28,7 +28,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="bg-white border-b border-indigo-100 absolute w-screen z-50 top-0 shadow-lg shadow-indigo-50">
+    <nav className="bg-white border-b border-indigo-100 absolute w-screen z-50 top-0 shadow-xl shadow-indigo-50">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <div className="relative flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <button

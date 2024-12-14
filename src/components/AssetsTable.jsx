@@ -60,7 +60,7 @@ const AssetsTable = ({ category }) => {
                       reloadAssets();
                     }}
                   >
-                    <span className="text-sm rounded-md px-2.5 py-1.5 bg-indigo-600 duration-300 hover:bg-indigo-500 text-white inline-block shadow-md shadow-gray-200">
+                    <span className="text-sm rounded-full px-3.5 py-1.5 font-semibold bg-gradient-to-r from-yellow-200  to-yellow-400 text-yellow-800 inline-block shadow-md shadow-gray-200">
                       Scrap
                     </span>
                   </button>
@@ -70,7 +70,7 @@ const AssetsTable = ({ category }) => {
                       reloadAssets();
                     }}
                   >
-                    <span className="text-sm rounded-md px-2.5 py-1.5 bg-red-600 duration-300 hover:bg-red-500 text-white inline-block shadow-md shadow-gray-200">
+                    <span className="text-sm rounded-full px-3.5 py-1.5 font-semibold bg-gradient-to-r from-red-400  to-red-600 text-white inline-block shadow-md shadow-gray-200">
                       Remove
                     </span>
                   </button>

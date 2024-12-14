@@ -15,7 +15,7 @@ const UserCard = ({ title, placeholder, value, onClick, fieldRef, noEdit }) => {
           <span
             className={`${
               noEdit ? "opacity-50" : ""
-            } text-sm rounded-md p-1.5 bg-indigo-600 duration-300 hover:bg-indigo-500 text-white inline-block shadow-md shadow-gray-200`}
+            } text-sm rounded-md p-1.5 bg-gradient-to-r from-indigo-400  to-indigo-600 text-white inline-block shadow-md shadow-gray-200`}
           >
             <Edit />
           </span>
