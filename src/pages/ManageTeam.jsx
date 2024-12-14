@@ -1,14 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Page from "../components/Page";
 
 import ModalForm from "../components/ModalForm";
 import FormField from "../components/FormField";
+import FormDropdown from "../components/FormDropdown";
 import TeamUsers from "../components/TeamUsers";
 import TeamAssets from "../components/TeamAssets";
+
+import Cookie from "js-cookie";
+import axios from "axios";
+import { API_URL } from "../config.mjs";
 
 const ManageTeam = () => {
   const [showMemberModal, setShowMemberModal] = useState(false);
   const [showAssetModal, setShowAssetModal] = useState(false);
+  const [assetType, setAssetType] = useState(null);
+  const [team, setTeam] = useState(null);
+
+  const memberRef = useRef(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const userRes = await axios.get(
+          `${API_URL}/user/${Cookie.get("user_id")}`
+        );
+        setTeam(userRes.data.data.team._id);
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <Page>
@@ -48,23 +72,45 @@ const ManageTeam = () => {
         showModal={showMemberModal}
         setShowModal={setShowMemberModal}
         title="Add Team Member"
-        onClick={() => {
+        onClick={async () => {
           setShowMemberModal(false);
-          alert("team member added");
+
+          await axios.put(`${API_URL}/user/${memberRef.current.value}`, {
+            team,
+            role: "user",
+          });
+          window.location.reload();
         }}
       >
-        <FormField label="User ID" placeholder="Enter User ID" />
+        <FormField
+          label="User ID"
+          placeholder="Enter User ID"
+          fieldRef={memberRef}
+        />
       </ModalForm>
       <ModalForm
         showModal={showAssetModal}
         setShowModal={setShowAssetModal}
         title="Add Asset for Team"
-        onClick={() => {
+        onClick={async () => {
           setShowAssetModal(false);
-          alert("team asset requested");
+          try {
+            await axios.post(`${API_URL}/team/request-asset/${team}`, {
+              asset: assetType,
+              requestedBy: Cookie.get("user_id"),
+            });
+            alert("Request added successfuly");
+          } catch (error) {
+            alert(`Error Occured: ${error.message}`);
+          }
         }}
       >
-        <FormField label="Asset ID" placeholder="Enter Asset ID" />
+        <FormDropdown
+          label="Select Asset Type"
+          options={["Mouse", "Monitor", "Keyboard", "Laptop"]}
+          text="Asset Type"
+          valueRef={setAssetType}
+        />
       </ModalForm>
     </Page>
   );

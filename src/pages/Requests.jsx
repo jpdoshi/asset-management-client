@@ -27,11 +27,11 @@ const Requests = () => {
         {/* Users */}
         {assets.userAssets &&
           assets.userAssets.map(
-            (user, i1) =>
+            (user) =>
               user.requests &&
               user.requests.map((asset, i2) => (
                 <RequestCard
-                  key={i1 * i2}
+                  key={i2}
                   asset={asset}
                   user={user.name}
                   type="User"
@@ -42,11 +42,11 @@ const Requests = () => {
         {/* Teams */}
         {assets.teamAssets &&
           assets.teamAssets.map(
-            (team, i1) =>
+            (team) =>
               team.requests &&
               team.requests.map((asset, i2) => (
                 <RequestCard
-                  key={i1 * i2}
+                  key={i2}
                   asset={asset.asset}
                   user={team.name}
                   type="Team"

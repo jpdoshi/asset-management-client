@@ -10,6 +10,7 @@ const Dashboard = () => {
   const [users, setUsers] = useState(null);
   const [teams, setTeams] = useState(null);
   const [assets, setAssets] = useState(null);
+  const [assetRequests, setAssetRequests] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +18,24 @@ const Dashboard = () => {
         const userRes = await axios.get(`${API_URL}/user`);
         const teamRes = await axios.get(`${API_URL}/team`);
         const assetRes = await axios.get(`${API_URL}/asset`);
+        const assetRequestsRes = await axios.get(
+          `${API_URL}/asset/asset-requests`
+        );
 
+        const teamAssets = assetRequestsRes.data.data.teamAssets;
+        const userAssets = assetRequestsRes.data.data.userAssets;
+
+        let _assetRequests = 0;
+
+        for (let team of teamAssets) {
+          _assetRequests += team.requests.length;
+        }
+
+        for (let user of userAssets) {
+          _assetRequests += user.requests.length;
+        }
+
+        setAssetRequests(_assetRequests);
         setUsers(userRes.data.data);
         setTeams(teamRes.data.data);
         setAssets(assetRes.data.data);
@@ -34,7 +52,7 @@ const Dashboard = () => {
       <h1 className="text-3xl mb-1 font-medium">Dashboard</h1>
       <h2 className="font-medium text-lg opacity-60">Assets Statistics</h2>
       <div className="mt-4 grid grid-cols-4 gap-4">
-        <Card amount={0} title="Asset Requests" to="/requests" />
+        <Card amount={assetRequests} title="Asset Requests" to="/requests" />
         <Card
           amount={assets && assets.length}
           title="No of Assets"

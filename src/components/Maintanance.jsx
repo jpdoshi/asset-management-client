@@ -11,7 +11,6 @@ const Maintanance = () => {
       try {
         const recentsRes = await axios.get(`${API_URL}/asset/recents`);
         setRecents(recentsRes.data.data);
-        console.log(recentsRes.data.data);
       } catch (error) {
         console.error(error.message);
       }
