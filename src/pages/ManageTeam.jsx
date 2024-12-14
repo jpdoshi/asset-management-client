@@ -21,7 +21,7 @@ const ManageTeam = () => {
         </div>
         <button
           onClick={() => setShowMemberModal(true)}
-          className="bg-gradient-to-r from-indigo-500 px-5 py-2 h-fit rounded-full text-white to-indigo-600 shadow-md shadow-gray-200"
+          className="bg-gradient-to-br from-indigo-400 px-5 py-2 h-fit rounded-full text-white to-indigo-600 shadow-md shadow-gray-200"
         >
           Add Member
         </button>
@@ -36,7 +36,7 @@ const ManageTeam = () => {
         </div>
         <button
           onClick={() => setShowAssetModal(true)}
-          className="bg-gradient-to-r from-indigo-500 px-5 py-2 h-fit rounded-full text-white to-indigo-600 shadow-md shadow-gray-200"
+          className="bg-gradient-to-br from-indigo-400 px-5 py-2 h-fit rounded-full text-white to-indigo-600 shadow-md shadow-gray-200"
         >
           Request Asset for Team
         </button>

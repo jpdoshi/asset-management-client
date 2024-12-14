@@ -29,12 +29,12 @@ const RequestCard = ({ user, team, asset }) => {
             setShowModal(true);
           }}
         >
-          <span className="text-sm rounded-md bg-gradient-to-r from-green-500 to-green-600 text-white inline-block shadow-md shadow-gray-200">
+          <span className="text-sm rounded-md bg-gradient-to-br from-green-400 to-green-600 text-white inline-block shadow-md shadow-gray-200">
             <Tick />
           </span>
         </button>
         <button onClick={() => alert("decline request")}>
-          <span className="text-sm rounded-md bg-gradient-to-r from-red-500 to-red-600 text-white inline-block shadow-md shadow-gray-200">
+          <span className="text-sm rounded-md bg-gradient-to-br from-red-400 to-red-600 text-white inline-block shadow-md shadow-gray-200">
             <Cross />
           </span>
         </button>

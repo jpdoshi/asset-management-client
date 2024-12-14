@@ -28,12 +28,12 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="bg-white border-b border-indigo-100 absolute w-screen z-50 top-0 shadow-xl shadow-indigo-50">
+    <nav className="bg-white border-b border-indigo-100 absolute w-screen z-50 top-0 shadow-lg shadow-indigo-50">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <div className="relative flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <button
             type="button"
-            className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-indigo-200"
+            className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-indigo-300 shadow-lg shadow-gray-100"
             id="user-menu-button"
             aria-expanded="false"
             data-dropdown-toggle="user-dropdown"
@@ -42,7 +42,7 @@ const Navbar = () => {
           >
             <span className="sr-only">Open user menu</span>
             <img
-              className="w-8 h-8 rounded-full shadow shadow-gray-200"
+              className="w-8 h-8 rounded-full"
               src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg"
               alt="user photo"
             />

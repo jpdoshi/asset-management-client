@@ -42,7 +42,7 @@ const UserAssets = () => {
                 <td className="py-2 px-8 text-sm">{asset.category}</td>
                 <td className="py-2 px-8 text-sm">
                   <button onClick={() => alert("request maintanance")}>
-                    <span className="text-sm rounded-md px-2.5 py-1.5 bg-gradient-to-r from-indigo-500  to-indigo-600 text-white inline-block shadow-md shadow-gray-200">
+                    <span className="text-sm rounded-md px-2.5 py-1.5 bg-gradient-to-br from-indigo-400  to-indigo-600 text-white inline-block shadow-md shadow-gray-200">
                       Request Maintanance
                     </span>
                   </button>

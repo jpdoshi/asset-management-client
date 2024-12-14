@@ -63,7 +63,7 @@ const Login = () => {
                 required
               />
             </div>
-            <button className="mt-4 block w-full bg-gradient-to-r from-indigo-500 to-indigo-600  text-white rounded-md p-3 font-medium">
+            <button className="mt-4 block w-full bg-gradient-to-br from-indigo-400 to-indigo-600  text-white rounded-md p-3 font-medium">
               Submit
             </button>
           </div>
