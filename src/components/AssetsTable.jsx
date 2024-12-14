@@ -32,7 +32,7 @@ const AssetsTable = ({ category }) => {
   };
 
   return (
-    <div className="bg-white rounded-md border border-indigo-100">
+    <div className="bg-white rounded-md border border-indigo-100 shadow-lg shadow-indigo-50">
       <table className="w-full">
         <thead>
           <tr className="border-b border-indigo-100 font-semibold">
@@ -60,7 +60,7 @@ const AssetsTable = ({ category }) => {
                       reloadAssets();
                     }}
                   >
-                    <span className="text-sm rounded-md px-2.5 py-1.5 bg-indigo-600 duration-300 hover:bg-indigo-500 text-white inline-block">
+                    <span className="text-sm rounded-md px-2.5 py-1.5 bg-indigo-600 duration-300 hover:bg-indigo-500 text-white inline-block shadow-md shadow-gray-200">
                       Scrap
                     </span>
                   </button>
@@ -70,7 +70,7 @@ const AssetsTable = ({ category }) => {
                       reloadAssets();
                     }}
                   >
-                    <span className="text-sm rounded-md px-2.5 py-1.5 bg-red-600 duration-300 hover:bg-red-500 text-white inline-block">
+                    <span className="text-sm rounded-md px-2.5 py-1.5 bg-red-600 duration-300 hover:bg-red-500 text-white inline-block shadow-md shadow-gray-200">
                       Remove
                     </span>
                   </button>

@@ -22,7 +22,7 @@ const TeamsTable = () => {
   }, []);
 
   return (
-    <div className="bg-white rounded-md border border-indigo-100">
+    <div className="bg-white rounded-md border border-indigo-100 shadow-lg shadow-indigo-50">
       <table className="w-full">
         <thead>
           <tr className="border-b border-indigo-100 font-semibold">
@@ -41,7 +41,7 @@ const TeamsTable = () => {
                 <td className="py-2 px-8 text-sm">{team.manager.name}</td>
                 <td className="py-2 px-8 text-sm">
                   <Link to={`/teams/${team._id}`}>
-                    <span className="text-sm rounded px-2.5 py-1.5 bg-indigo-600 duration-300 hover:bg-indigo-500 text-white inline-block">
+                    <span className="text-sm rounded px-2.5 py-1.5 bg-indigo-600 duration-300 hover:bg-indigo-500 text-white inline-block shadow-md shadow-gray-200">
                       <Arrow />
                     </span>
                   </Link>

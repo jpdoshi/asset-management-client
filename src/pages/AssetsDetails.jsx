@@ -14,7 +14,7 @@ const AssetsDetails = () => {
         {capitalizeString(assetType)}
       </h1>
       <h2 className="font-medium text-lg opacity-60">
-        Manage {capitalizeString(assetType) + "s"}
+        Manage {capitalizeString(assetType)}
       </h2>
       <div className="mt-4">
         <AssetsTable category={assetType} />

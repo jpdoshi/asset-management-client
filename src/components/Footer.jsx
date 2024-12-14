@@ -8,7 +8,7 @@ const Footer = () => {
         <a
           href="https://github.com/jpdoshi"
           target="_blank"
-          className="underline underline-offset-2"
+          className="underline underline-offset-2 text-indigo-600"
         >
           jpdoshi
         </a>

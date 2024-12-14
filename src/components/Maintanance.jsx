@@ -21,7 +21,7 @@ const Maintanance = () => {
   }, []);
 
   return (
-    <div className="bg-white rounded-md border border-indigo-100">
+    <div className="bg-white rounded-md border border-indigo-100 shadow-lg shadow-indigo-50">
       <table className="w-full">
         <thead>
           <tr className="border-b border-indigo-100 font-semibold">

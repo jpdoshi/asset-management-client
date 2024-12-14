@@ -28,7 +28,7 @@ const TeamUsers = () => {
     fetchData();
   }, []);
   return (
-    <div className="bg-white rounded-md border border-indigo-100">
+    <div className="bg-white rounded-md border border-indigo-100 shadow-lg shadow-indigo-50">
       <table className="w-full">
         <thead>
           <tr className="border-b border-indigo-100 font-semibold">
@@ -58,7 +58,7 @@ const TeamUsers = () => {
                     <span
                       className={`${
                         user.role == "Manager" ? "opacity-50" : ""
-                      } text-sm rounded-md p-0.5 bg-red-600 duration-300 hover:bg-red-500 text-white inline-block`}
+                      } text-sm rounded-md p-0.5 bg-red-600 duration-300 hover:bg-red-500 text-white inline-block shadow-md shadow-gray-200`}
                     >
                       <Cross />
                     </span>
