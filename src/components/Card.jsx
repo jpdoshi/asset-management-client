@@ -9,7 +9,7 @@ const Card = ({ title, amount, to = "/" }) => {
       <p className="opacity-50 font-semibold">{title}</p>
       <div className="flex justify-end">
         <Link to={to}>
-          <span className="text-sm rounded-md px-2.5 py-1.5 bg-gradient-to-br from-indigo-400 to-indigo-600 text-white inline-block shadow-md shadow-gray-200">
+          <span className="text-sm rounded-md px-2.5 py-1.5 bg-gradient-to-br from-indigo-400 to-indigo-600 text-white inline-block shadow-md shadow-gray-200 hover:saturate-150">
             <Arrow />
           </span>
         </Link>

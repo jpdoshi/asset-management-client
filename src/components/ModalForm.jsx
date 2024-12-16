@@ -55,7 +55,7 @@ const ModalForm = ({
               <button
                 onClick={onClick}
                 type="button"
-                className="text-white bg-gradient-to-br from-indigo-400 to-indigo-600 focus:ring-4 focus:outline-none focus:ring-indigo-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                className="text-white bg-gradient-to-br hover:saturate-150 from-indigo-400 to-indigo-600 focus:ring-4 focus:outline-none focus:ring-indigo-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
               >
                 Submit
               </button>

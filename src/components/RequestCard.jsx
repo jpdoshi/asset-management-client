@@ -26,7 +26,7 @@ const RequestCard = ({ user, asset, type }) => {
             setShowModal(true);
           }}
         >
-          <span className="text-sm rounded-md bg-gradient-to-br from-green-400 to-green-600 text-white inline-block shadow-md shadow-gray-200">
+          <span className="text-sm rounded-md hover:saturate-150 bg-gradient-to-br from-green-400 to-green-600 text-white inline-block shadow-md shadow-gray-200">
             <Tick />
           </span>
         </button>
@@ -54,7 +54,7 @@ const RequestCard = ({ user, asset, type }) => {
             window.location.reload();
           }}
         >
-          <span className="text-sm rounded-md bg-gradient-to-br from-red-400 to-red-600 text-white inline-block shadow-md shadow-gray-200">
+          <span className="text-sm rounded-md hover:saturate-150 bg-gradient-to-br from-red-400 to-red-600 text-white inline-block shadow-md shadow-gray-200">
             <Cross />
           </span>
         </button>

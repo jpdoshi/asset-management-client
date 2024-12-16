@@ -65,7 +65,7 @@ const TeamAssets = () => {
                         setAssignAsset(asset);
                       }}
                     >
-                      <span className="text-sm rounded-full px-3.5 py-1.5 font-medium bg-gradient-to-br from-indigo-400  to-indigo-600 text-white inline-block shadow-md shadow-gray-200">
+                      <span className="text-sm rounded-full px-3.5 py-1.5 hover:saturate-150 font-medium bg-gradient-to-br from-indigo-400  to-indigo-600 text-white inline-block shadow-md shadow-gray-200">
                         Assign User
                       </span>
                     </button>
@@ -81,7 +81,7 @@ const TeamAssets = () => {
                         window.location.reload();
                       }}
                     >
-                      <span className="text-sm rounded-md bg-gradient-to-br from-red-400  to-red-600 text-white inline-block shadow-md shadow-gray-200">
+                      <span className="text-sm rounded-md hover:saturate-150 bg-gradient-to-br from-red-400  to-red-600 text-white inline-block shadow-md shadow-gray-200">
                         <Cross />
                       </span>
                     </button>

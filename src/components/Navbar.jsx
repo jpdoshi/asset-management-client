@@ -33,7 +33,7 @@ const Navbar = () => {
         <div className="relative flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <button
             type="button"
-            className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-indigo-300 shadow-lg shadow-gray-100"
+            className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-indigo-200 shadow-lg shadow-gray-100"
             id="user-menu-button"
             aria-expanded="false"
             data-dropdown-toggle="user-dropdown"

@@ -53,7 +53,7 @@ const Assets = () => {
         </div>
         <button
           onClick={() => setShowModal(true)}
-          className="bg-gradient-to-br from-indigo-400 px-5 py-2 h-fit rounded-full text-white to-indigo-600 shadow-md shadow-gray-200"
+          className="bg-gradient-to-br from-indigo-400 px-5 py-2 h-fit rounded-full hover:saturate-150 text-white to-indigo-600 shadow-md shadow-gray-200"
         >
           Add Asset
         </button>

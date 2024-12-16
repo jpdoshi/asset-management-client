@@ -52,14 +52,14 @@ const UserAssets = () => {
                       setShowModal(true);
                     }}
                   >
-                    <span className="text-sm rounded-full px-3.5 py-1 bg-gradient-to-br from-yellow-200  to-yellow-400 text-yellow-800 font-semibold inline-block shadow-md shadow-gray-200">
+                    <span className="text-sm rounded-full hover:saturate-150 px-3.5 py-1 bg-gradient-to-br from-yellow-200  to-yellow-400 text-yellow-800 font-semibold inline-block shadow-md shadow-gray-200">
                       History Log
                     </span>
                   </button>
                   <button
                     onClick={() => alert("added request for maintanance")}
                   >
-                    <span className="text-sm rounded-full px-3.5 py-1 bg-gradient-to-br from-indigo-400  to-indigo-600 text-white font-semibold inline-block shadow-md shadow-gray-200">
+                    <span className="text-sm rounded-full hover:saturate-150 px-3.5 py-1 bg-gradient-to-br from-indigo-400  to-indigo-600 text-white font-semibold inline-block shadow-md shadow-gray-200">
                       Request Maintanance
                     </span>
                   </button>

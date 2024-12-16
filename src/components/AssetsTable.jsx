@@ -66,7 +66,7 @@ const AssetsTable = ({ category }) => {
                         setAssignAsset(asset);
                       }}
                     >
-                      <span className="text-sm rounded-full px-3.5 py-1.5 font-medium bg-gradient-to-br from-indigo-400  to-indigo-600 text-white inline-block shadow-md shadow-gray-200">
+                      <span className="text-sm rounded-full px-3.5 py-1.5 font-medium hover:saturate-150 bg-gradient-to-br from-indigo-400  to-indigo-600 text-white inline-block shadow-md shadow-gray-200">
                         Assign User
                       </span>
                     </button>
@@ -84,7 +84,7 @@ const AssetsTable = ({ category }) => {
                     <span
                       className={`${
                         asset.status == "Scrap" ? "opacity-50" : ""
-                      } text-sm rounded-full px-3.5 py-1.5 font-medium bg-gradient-to-br from-yellow-200  to-yellow-400 text-yellow-800 inline-block shadow-md shadow-gray-200`}
+                      } text-sm rounded-full hover:saturate-150 px-3.5 py-1.5 font-medium bg-gradient-to-br from-yellow-200  to-yellow-400 text-yellow-800 inline-block shadow-md shadow-gray-200`}
                     >
                       Scrap
                     </span>
@@ -95,7 +95,7 @@ const AssetsTable = ({ category }) => {
                       reloadAssets();
                     }}
                   >
-                    <span className="text-sm rounded-full px-3.5 py-1.5 font-medium bg-gradient-to-br from-red-400  to-red-600 text-white inline-block shadow-md shadow-gray-200">
+                    <span className="text-sm rounded-full hover:saturate-150 px-3.5 py-1.5 font-medium bg-gradient-to-br from-red-400  to-red-600 text-white inline-block shadow-md shadow-gray-200">
                       Remove
                     </span>
                   </button>
