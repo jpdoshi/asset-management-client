@@ -41,7 +41,6 @@ const App = () => {
       ) : userRole == "Manager" ? (
         <Routes>
           <Route element={<UserDashboard />} path="/" />
-          <Route element={<UserTeam />} path="/request" />
           <Route element={<ManageTeam />} path="/team" />
           <Route element={<NotFound />} path="*" />
         </Routes>

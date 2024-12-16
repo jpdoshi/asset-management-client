@@ -1,6 +1,13 @@
 import React from "react";
 
-const ModalForm = ({ showModal, setShowModal, title, children, onClick }) => {
+const ModalForm = ({
+  showModal,
+  setShowModal,
+  title,
+  children,
+  onClick,
+  hideBtn,
+}) => {
   const closeModal = () => {
     setShowModal(false);
   };
@@ -43,15 +50,17 @@ const ModalForm = ({ showModal, setShowModal, title, children, onClick }) => {
           {/* Modal body */}
           <div className="p-4 px-6 space-y-4">{children}</div>
           {/* Modal footer */}
-          <div className="flex items-center p-4 px-6 rounded-b">
-            <button
-              onClick={onClick}
-              type="button"
-              className="text-white bg-gradient-to-br from-indigo-400 to-indigo-600 focus:ring-4 focus:outline-none focus:ring-indigo-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-            >
-              Submit
-            </button>
-          </div>
+          {hideBtn ? null : (
+            <div className="flex items-center p-4 px-6 rounded-b">
+              <button
+                onClick={onClick}
+                type="button"
+                className="text-white bg-gradient-to-br from-indigo-400 to-indigo-600 focus:ring-4 focus:outline-none focus:ring-indigo-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+              >
+                Submit
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
